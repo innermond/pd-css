@@ -1,3 +1,5 @@
+@import '_vars';
+
 @charset"utf-8";
 blockquote,body,p{
     margin:0;
@@ -14,7 +16,7 @@ div,dd,dl,dt,fieldset,form,li,ol,ul{
 }
 legend{
     padding:0;
-    color:#000
+    color:$text_color
 }
 div{
     position:relative
@@ -30,22 +32,20 @@ select{
 }
 body{
     line-height:1.618rem;
-    background-color:#fffee4;
-    color:#000;
+    background-color:$background_base_color;
+    color:$text_color;
     font-family:Roboto,sans-serif;
     text-rendering:optimizeLegibility;
-    font-weight:400;
     font-size:1rem
 }
 h1,h2,h3,h4,h5,h6{
-    font-weight:400;
     margin:1rem 0 0;
     padding:0;
-    transition:background-color .25s ease-in-out;
-    color:#2c6202
+    transition: background-color .25s ease-in-out;
+    color:$main_color
 }
 h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
-    background-color:#f4fadc
+    background-color:$background_main_color
 }
 h1:first-letter ,h2:first-letter ,h3:first-letter {
     text-transform:uppercase
@@ -83,7 +83,7 @@ p.explicativ+ul.general-info.fa-ul li a{
     font-size:1em
 }
 p.explicativ+ul.general-info.fa-ul li a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 p img{
     float:left;
@@ -95,18 +95,18 @@ p img.right{
     margin:.5em
 }
 a:focus,a:hover,div.important.really a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 a{
     position:relative;
     text-decoration:none;
-    color:#2c6202;
+    color:$main_color;
     transition:all .25s ease-in-out
 }
 blockquote{
     font-family:Georgia,serif;
     margin:1.2em;
-    color:#000;
+    color:$text_color;
     font-style:italic;
     font-size:1.2em
 }
@@ -169,11 +169,11 @@ caption{
     color:#fff
 }
 caption:hover{
-    background:#fd8e00;
+    background:$hover_color;
     cursor:pointer
 }
 .green{
-    color:#2c6202
+    color:$main_color
 }
 .highlight{
     border-bottom:2px dotted #fe4f3c
@@ -247,7 +247,7 @@ blockquote{
     transition:background-color .25s ease-in-out
 }
 #logo img:hover{
-    background:#fd8e00
+    background:$hover_color
 }
 #menu{
     position:relative;
@@ -284,7 +284,7 @@ ul#campanii li a{
     text-decoration:none
 }
 #menu a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 #page{
     width:auto;
@@ -336,8 +336,8 @@ ul.futer li:before{
     font-size:auto
 }
 ul.futer li:hover{
-    background-color:#fff7e7;
-    color:#fd8e00
+    background-color:$background_accent_color;
+    color:$hover_color
 }
 ul.futer li.parent{
     font-size:1.2rem;
@@ -356,10 +356,10 @@ ul.futer li a{
     display:block
 }
 ul.futer.subpages li,ul.futer.subpages li a{
-    color:#b80085
+    color:$accent_color
 }
 ul.futer.subpages li:hover,ul.futer.subpages li a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 #content{
     box-sizing:border-box;
@@ -378,7 +378,7 @@ table{
     border-collapse:collapse
 }
 tr>td:nth-child(1),td{
-    border-bottom:.25rem solid #f4fadc
+    border-bottom:.25rem solid $background_main_color
 }
 td,th{
     padding:.25rem;
@@ -514,7 +514,7 @@ div.error em{
     color:#003d4c
 }
 p.notice,span.notice{
-    background-color:#fd8e00;
+    background-color:$hover_color;
     color:#fff;
     display:block;
     padding:.5em
@@ -530,7 +530,7 @@ img.poza{
     border:10px solid #eee
 }
 img.poza:hover{
-    border:10px solid #fd8e00
+    border:10px solid $hover_color
 }
 img.center,img.zoom{
     max-width:100%;
@@ -585,7 +585,7 @@ ul.topnav{
     background-clip:padding-box;
     -moz-box-sizing:border-box;
     box-sizing:border-box;
-    border-bottom:1px solid #2c6202
+    border-bottom:1px solid $main_color
 }
 ul.topnav li{
     padding:0 .25rem;
@@ -616,7 +616,7 @@ ul.topnav img{
     text-decoration:none
 }
 .social-icons a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 .youtube-playlist{
     margin-top:1em
@@ -710,7 +710,7 @@ table.lista-preturi-print{
     display:block;
     width:100%;
     height:1px;
-    background:#2c6202;
+    background:$main_color;
     transition:width .5s,margin-left .5s
 }
 .btn:hover{
@@ -719,7 +719,7 @@ table.lista-preturi-print{
 }
 .btn:hover:after{
     margin-left:50%;
-    background:#fd8e00;
+    background:$hover_color;
     width:0
 }
 .flex-container{
@@ -796,7 +796,7 @@ ul.jumpers li{
 }
 ul.jumpers li:before{
     width:1rem;
-    color:#b80085;
+    color:$accent_color;
     content:"■";
     display:inline-block;
     vertical-align:text-bottom;
@@ -805,7 +805,7 @@ ul.jumpers li:before{
     font-size:.5rem
 }
 ul.jumpers li:hover::before,ul.jumpers li:hover a{
-    color:#fd8e00
+    color:$hover_color
 }
 figcaption{
     color:#444;
@@ -842,51 +842,51 @@ ol.navigational a{
     font-size:.8rem
 }
 ol.navigational a:hover,ol.navigational li:hover::after{
-    color:#b80085
+    color:$accent_color
 }
 div.important{
-    background-color:#f4fadc;
+    background-color:$background_main_color;
     padding:1rem .5rem .5rem;
     display:flex;
     justify-content:space-between;
     margin:.5rem 0
 }
 div.important.really h2,div.important.really h3{
-    color:#b80085
+    color:$accent_color
 }
 div.important.really{
-    background-color:#fff7e7
+    background-color:$background_accent_color
 }
 div.important.really ul a{
-    color:#b80085;
+    color:$accent_color;
     line-height:2em;
     text-transform:none;
     text-decoration:none;
     font-weight:500
 }
 div.important.really a{
-    color:#b80085
+    color:$accent_color
 }
 div.important.really ul a:hover{
-    color:#fd8e00
+    color:$hover_color
 }
 div.important.really a.btn{
-    background:#b80085;
+    background:$accent_color;
     color:#fff;
     text-decoration:none
 }
 div.important.really a.btn:hover{
-    background:#fd8e00
+    background:$hover_color
 }
 div.important:after{
     font-family:FontAwesome;
     font-size:2em;
     content:"\f05a";
-    color:#2c6202;
+    color:$main_color;
     display:block
 }
 div.important.really:after{
-    color:#b80085
+    color:$accent_color
 }
 i.fa{
     display:inline-block;
