@@ -1,0 +1,8 @@
+#!/bin/bash
+ftp -inv $PD_FTP_HOST <<EOF
+user $PD_FTP_USER $PD_FTP_PASS
+cd www/css
+put dist/style.min.css ./style.min.css
+bye
+EOF
+

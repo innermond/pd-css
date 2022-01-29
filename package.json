@@ -1,0 +1,16 @@
+{
+  "name": "pd-css",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass:watch": "inotifywait -q -e close_write -m --exclude 'src\\/.+\\.css' src | xargs -I x npm run sass:css",
+    "sass:css": "sassc src/style.scss src/style.css",
+    "css:min": "yui-compressor -o dist/style.min.css src/style.css",
+    "css:up": "npm run css:min && . bin/.env && . bin/.ftp && . bin/.unenv"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

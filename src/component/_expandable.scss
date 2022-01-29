@@ -1,0 +1,38 @@
+div.expandable{
+    &-wrapper {
+        height:3.5rem
+    }
+    position:absolute;
+    box-sizing:border-box;
+    z-index:999;
+    padding:1rem;
+    margin-left:0rem;
+    max-height:3.5rem;
+    width:100%;
+    transition:max-height .5s ease-in-out;
+    overflow:hidden;
+    &:hover {
+        max-height:45rem;
+        &::after {
+            opacity:0;
+        }
+    }
+    &::after{
+        font-family:FontAwesome;
+        font-size:1.5rem;
+        color:#b80085;
+        content:"\f078";
+        display:inline-block;
+        transition:opacity .5s ease-in-out;
+        opacity:1;
+        top:1rem;
+        right:.5rem;
+        position:absolute
+    }
+}
+
+@media(min-width:780px){
+    div.important.expandable:hover{
+        max-height:15rem;
+    }
+}

@@ -1,0 +1,5 @@
+#!/bin/bash
+echo unsetting ftp access
+unset PD_FTP_HOST
+unset PD_FTP_USER
+unset PD_FTP_PASS
