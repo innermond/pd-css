@@ -20,7 +20,6 @@ It monitors any changes to files hosted in *src* directory and convert style.scs
 
 Minify style.css file (this file is the main css file, it collects all css needed for website).
 By FTP, moves style.min.css from *dist* directory to web location
-
 Into *bin* directory there are 2 file that need executable flag on.
 
 *    .env set your FTP credentials into terminal, so, the FTP actually now where to put style.min.css.
