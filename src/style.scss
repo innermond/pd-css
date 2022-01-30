@@ -1,98 +1,51 @@
+$space: 0.5rem;
+$time: 0.5s;
+$ratio: 1.618;
+@function pow($base, $exponents) {
+  $raised: 1;
+
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+
+  @return $raised;
+}
+$fontsize:1rem;
+$fontfactor:$fontsize/2;
+$fontsmall:($fontsize - $fontfactor)+($fontfactor/$ratio);
+$fontsize:$fontsize;
+$fontbig:$fontsize*$ratio;
+@function lineheigh($fontsize:$fontsize) {
+    @return $fontsize*$ratio;
+}
+@mixin transition($property:all, $duration:$time, $kind:ease-in-out) {
+    transition: $property $duration $kind;
+}
+
 @import '_vars';
+@import '_reset';
+@import 'component/_breadcrumbs';
+@import 'component/expandable';
 
 @charset"utf-8";
-blockquote,body,p{
-    margin:0;
-    padding:0;
-    max-width:100%;
-    width:auto
-}
-a img,iframe{
-    border:0
-}
-div,dd,dl,dt,fieldset,form,li,ol,ul{
-    margin:0;
-    padding:0
-}
-legend{
-    padding:0;
-    color:$text_color
-}
 div{
     position:relative
 }
-input,select,textarea{
-    margin:0;
-    padding:1px;
-    font-size:100%;
-    font-family:inherit
-}
-select{
-    padding:0
-}
 body{
-    line-height:1.618rem;
+    line-height:lineheigh($fontsize);
     background-color:$background_base_color;
     color:$text_color;
     font-family:Roboto,sans-serif;
-    text-rendering:optimizeLegibility;
-    font-size:1rem
+    font-size:$fontsize
 }
-h1,h2,h3,h4,h5,h6{
-    margin:1rem 0 0;
-    padding:0;
-    transition: background-color .25s ease-in-out;
-    color:$main_color
-}
-h1:hover,h2:hover,h3:hover,h4:hover,h5:hover,h6:hover{
-    background-color:$background_main_color
-}
-h1:first-letter ,h2:first-letter ,h3:first-letter {
-    text-transform:uppercase
-}
-h1{
-    font-size:1.75rem;
-    margin-bottom:.25rem
-}
-h2{
-    font-size:1.5rem
-}
-h3{
-    font-size:1.25rem;
-    margin-bottom:.25rem
-}
-h1 img,h2 img,h3 img,h4 img,h5 img,h6 img{
-    margin:0
-}
+@import '_h16';
 p{
-    margin:.5em .5em 1em
-}
-p.explicativ{
-    margin:.25em
-}
-p.explicativ+ul.general-info.fa-ul{
-    padding:.25em
-}
-p.explicativ+ul.general-info.fa-ul li{
-    margin-bottom:.5em
-}
-p.explicativ+ul.general-info.fa-ul li i{
-    color:#93c443
-}
-p.explicativ+ul.general-info.fa-ul li a{
-    font-size:1em
-}
-p.explicativ+ul.general-info.fa-ul li a:hover{
-    color:$hover_color
+    padding:$space $space 2*$space;
 }
 p img{
     float:left;
     margin:.5em;
     padding:0
-}
-p img.right{
-    float:right;
-    margin:.5em
 }
 a:focus,a:hover,div.important.really a:hover{
     color:$hover_color
@@ -101,26 +54,10 @@ a{
     position:relative;
     text-decoration:none;
     color:$main_color;
-    transition:all .25s ease-in-out
-}
-blockquote{
-    font-family:Georgia,serif;
-    margin:1.2em;
-    color:$text_color;
-    font-style:italic;
-    font-size:1.2em
-}
-dfn,em{
-    font-style:italic
-}
-dfn{
-    font-weight:700
+    @include transition($duration:$time);
 }
 sub,sup{
     line-height:0
-}
-abbr,acronym{
-    border-bottom:1px dotted #666
 }
 address{
     margin:0 0 1.5em;
@@ -128,19 +65,6 @@ address{
 }
 del{
     color:#666
-}
-code,pre{
-    margin:1.5em 0;
-    white-space:pre-wrap;
-    word-wrap:break-word;
-    overflow:auto
-}
-code,pre,tt{
-    font:1em "andale mono","lucida console",monospace;
-    line-height:1.5
-}
-li ol,li ul,ol,ul{
-    margin:0 .5em
 }
 ul{
     list-style-type:none
@@ -150,15 +74,10 @@ ol{
     list-style-position:inside
 }
 dl{
-    margin:0 0 .5em
-}
-dl dt{
-    font-weight:700;
-    float:left
+    margin:0 .5rem
 }
 dd{
-    padding-left:3rem;
-    float:left;
+    padding-left:0.5rem;
     padding-bottom:.5rem
 }
 tfoot{
@@ -172,75 +91,23 @@ caption:hover{
     background:$hover_color;
     cursor:pointer
 }
-.green{
-    color:$main_color
-}
-.highlight{
-    border-bottom:2px dotted #fe4f3c
-}
-.first{
-    margin-left:0;
-    padding-left:0
-}
-.last{
-    margin-right:0;
-    padding-right:0
-}
-.top{
-    margin-top:0;
-    padding-top:0
-}
-.left{
-    float:left
-}
-.right{
-    float:right
-}
-.bottom{
-    margin-bottom:0;
-    padding-bottom:0
-}
-.fereastra{
-    color:#444
-}
 p.fereastra:before{
     font-family:FontAwesome;
     content:"\f071";
-    padding:0 .5em;
-    font-size:1em;
-    width:1em;
-    color:#50812b
-}
-h1,h2,h3{
-    text-transform:lowercase;
-    text-align:left;
-    clear:left;
-    padding:.5em;
-    line-height:1.5em
-}
-h1 a,h2 a,h3 a{
-    text-decoration:none
-}
-h1 a:hover,h2 a:hover,h3 a:hover{
-    text-decoration:underline
-}
-blockquote{
-    margin-left:2em;
-    margin-right:2em
+    padding:0 .5rem;
+    font-size:1rem;
+    width:1rem;
+    color: $main_color;
 }
 #pos{
     max-width:1024px;
     width:100%;
     margin:auto;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box
 }
 #header{
     width:100%;
     margin:auto;
     background-color:#fff;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box
 }
 #logo img{
     background:#50812b;
@@ -264,23 +131,10 @@ blockquote{
     display:inline;
     font-size:1em
 }
-ul#campanii{
-    background:0;
-    margin:0;
-    padding:0;
-    height:150px
-}
-ul#campanii li{
-    padding:0;
-    margin:0
-}
-ul#campanii li a{
-    margin:0;
-    padding:0
-}
 #menu a{
     padding:0;
     text-transform:uppercase;
+    text-align: center;
     text-decoration:none
 }
 #menu a:hover{
@@ -289,28 +143,6 @@ ul#campanii li a{
 #page{
     width:auto;
     margin:0
-}
-#bottom{
-    border:5px solid red;
-    width:100%;
-    clear:both
-}
-.sidebar{
-    padding:0 .5em
-}
-.sidebar ul{
-    margin:0;
-    padding:0;
-    list-style:none
-}
-.sidebar h2{
-    margin:0;
-    padding:0;
-    letter-spacing:normal;
-    font-size:1em
-}
-#sidebar1 li{
-    padding:0
 }
 li a{
     text-transform:capitalize
@@ -362,20 +194,16 @@ ul.futer.subpages li:hover,ul.futer.subpages li a:hover{
     color:$hover_color
 }
 #content{
-    box-sizing:border-box;
     min-width:300px
 }
 #footer{
     float:left;
     background-color:#fffee0;
     font-size:.8rem;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box
 }
 table{
     margin-bottom:1rem;
     clear:both;
-    border-collapse:collapse
 }
 tr>td:nth-child(1),td{
     border-bottom:.25rem solid $background_main_color
@@ -400,107 +228,6 @@ th a:hover{
     background-color:orange;
     color:#333;
     text-decoration:none
-}
-table tr.altrow td{
-    background:#fff
-}
-td.actions{
-    text-align:center;
-    font-size:80%;
-    white-space:nowrap
-}
-td.actions a{
-    color:red;
-    font-weight:400;
-    margin:0 6px;
-    display:block;
-    padding-bottom:10px
-}
-dt{
-    font-weight:700;
-    vertical-align:top
-}
-div.dd{
-    vertical-align:top
-}
-dd img{
-    display:block;
-    margin:auto
-}
-form{
-    clear:both;
-    margin-right:20px;
-    padding:0;
-    width:100%;
-    border:0
-}
-fieldset{
-    border:0;
-    border-top:1px solid silver;
-    margin-top:30px;
-    padding:16px 20px
-}
-fieldset legend{
-    color:#444;
-    font-size:110%;
-    font-weight:700
-}
-form div{
-    margin-bottom:.5em
-}
-form div.required{
-    color:red;
-    font-weight:700
-}
-form div.input,form div.optional{
-    color:#444
-}
-form div.submit{
-    border:0;
-    clear:both;
-    margin-top:10px;
-    margin-left:20px
-}
-label{
-    display:block;
-    font-size:105%;
-    padding-right:20px
-}
-input,textarea{
-    clear:both;
-    display:block;
-    font-size:100%;
-    font-family:FontAwesome,verdana,sans-serif;
-    padding:.25em;
-    width:100%
-}
-input[type=hidden]{
-    display:none
-}
-select{
-    clear:both;
-    font-size:110%;
-    vertical-align:text-bottom
-}
-select[multiple=multiple]{
-    width:100%
-}
-option{
-    font-size:110%;
-    padding:0 3px
-}
-input[type=checkbox]{
-    clear:left;
-    float:left;
-    margin:0 6px 7px 2px;
-    width:auto
-}
-input[type=submit]{
-    display:inline;
-    padding:.5em;
-    width:auto;
-    font-size:1em;
-    vertical-align:bottom
 }
 div.error-message,div.message,p.error,ul.error{
     color:red;
@@ -538,11 +265,6 @@ img.center,img.zoom{
     display:block;
     margin:1rem auto
 }
-img.single{
-    display:block;
-    position:relative;
-    margin:auto
-}
 form div.form_error{
     background-color:#ff0;
     border:1px solid red;
@@ -552,7 +274,7 @@ ul.enumerare li{
     font-weight:700
 }
 div#fieldsets a{
-    padding:.5em;
+    padding:.5rem;
     display:inline
 }
 #scule li{
@@ -560,8 +282,6 @@ div#fieldsets a{
     min-width:200px;
     float:left;
     padding:0 .5em;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
     margin:0 .5em .5em;
     font-weight:700
 }
@@ -570,7 +290,7 @@ div#fieldsets a{
     clear:left;
     float:left;
     white-space:normal;
-    text-align:justify;
+    text-indent: 0.5rem;
     font-weight:400
 }
 ul.topnav{
@@ -583,8 +303,6 @@ ul.topnav{
     z-index:999;
     overflow:hidden;
     background-clip:padding-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
     border-bottom:1px solid $main_color
 }
 ul.topnav li{
@@ -593,22 +311,13 @@ ul.topnav li{
     display:inline-block;
     vertical-align:bottom
 }
-ul.topnav li input{
-    display:inline;
-    width:auto;
-    border:0;
-    border-bottom:1px solid #aaa
-}
-ul.topnav li i{
-    font-size:1.5em
-}
 ul.topnav img{
     float:left
 }
 .social-icons{
     float:right;
     top:0;
-    width:autoover
+    width:auto
 }
 .social-icons a{
     padding-right:1rem;
@@ -637,10 +346,6 @@ ul.topnav img{
     width:300px;
     margin-right:0;
     margin-bottom:0
-}
-.break{
-    float:left;
-    clear:left
 }
 #back-top{
     position:fixed;
@@ -757,9 +462,6 @@ table.lista-preturi-print{
 #scule li a.title{
     display:block
 }
-#scule li p{
-    margin-left:0
-}
 .show-h1{
     max-width:980px;
     margin:auto;
@@ -767,9 +469,6 @@ table.lista-preturi-print{
 }
 .show-h1 h2{
     font-size:1.5em
-}
-.show-h1 p{
-    font-size:1.2em
 }
 footer{
     clear:both;
@@ -824,25 +523,6 @@ figcaption{
     left:0;
     width:100%;
     height:100%
-}
-ol.navigational{
-    display:flex;
-    flex-wrap:wrap;
-    list-style:none
-}
-ol.navigational li:not(:last-child):after{
-    font-family:FontAwesome;
-    content:"\f105";
-    display:inline-block;
-    padding:0 .5rem;
-    transition:all .5s ease-in-out
-}
-ol.navigational a{
-    color:initial;
-    font-size:.8rem
-}
-ol.navigational a:hover,ol.navigational li:hover::after{
-    color:$accent_color
 }
 div.important{
     background-color:$background_main_color;
@@ -933,11 +613,10 @@ i.fa{
         margin:0
     }
 }
-@import 'component/expandable';
 #navigationPoint{
     margin-top:.5rem
 }
 lite-youtube{
     margin:auto
 }
-
+@import '_inputs';

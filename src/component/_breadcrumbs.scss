@@ -1,0 +1,20 @@
+ol.navigational{
+    display:flex;
+    flex-wrap:wrap;
+    margin-left:$space;
+    list-style:none
+}
+ol.navigational li:not(:last-child):after{
+    font-family:FontAwesome;
+    content:"\f105";
+    display:inline-block;
+    padding:0 $space;
+    @include transition()
+}
+ol.navigational a{
+    color:initial;
+    font-size:$fontsmall;
+}
+ol.navigational a:hover,ol.navigational li:hover::after{
+    color:$accent_color
+}

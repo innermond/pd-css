@@ -1,0 +1,85 @@
+legend{
+    padding:0;
+    color:$text_color
+}
+input,select,textarea{
+    padding:1px;
+}
+select{
+    padding:0
+}
+form{
+    clear:both;
+    margin-right:20px;
+    padding:0;
+    width:100%;
+    border:0
+}
+fieldset{
+    border:0;
+    border-top:1px solid silver;
+    margin-top:30px;
+    padding:16px 20px
+}
+fieldset legend{
+    color:#444;
+    font-size:110%;
+    font-weight:700
+}
+form div{
+    margin-bottom:.5em
+}
+form div.required{
+    color:red;
+    font-weight:700
+}
+form div.input,form div.optional{
+    color:#444
+}
+form div.submit{
+    border:0;
+    clear:both;
+    margin-top:10px;
+    margin-left:20px
+}
+label{
+    display:block;
+    font-size:105%;
+    padding-right:20px
+}
+input,textarea{
+    clear:both;
+    display:block;
+    font-size:100%;
+    font-family:FontAwesome,verdana,sans-serif;
+    padding:.25em;
+    width:100%
+}
+input[type=hidden]{
+    display:none
+}
+select{
+    clear:both;
+    font-size:110%;
+    vertical-align:text-bottom
+}
+select[multiple=multiple]{
+    width:100%
+}
+option{
+    font-size:110%;
+    padding:0 3px
+}
+input[type=checkbox]{
+    clear:left;
+    float:left;
+    margin:0 6px 7px 2px;
+    width:auto
+}
+input[type=submit]{
+    display:inline;
+    padding:.5em;
+    width:auto;
+    font-size:1em;
+    vertical-align:bottom
+}
