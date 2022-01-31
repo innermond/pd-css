@@ -14,13 +14,17 @@ Also a Linux operating system
 
 ### sass:watch
 
-It monitors any changes to files hosted in *src* directory and convert style.scss
+It monitors any changes to files hosted in *src* directory and convert file style.scss to style.css.
 
 ### css:up
 
 Minify style.css file (this file is the main css file, it collects all css needed for website).
-By FTP, moves style.min.css from *dist* directory to web location
-Into *bin* directory there are 2 file that need executable flag on.
 
-*    .env set your FTP credentials into terminal, so, the FTP actually now where to put style.min.css.
-*    .unenv unset credentials
+By FTP, it moves style.min.css from *dist* directory to the web location, which it is specified in .env).
+
+Into *bin* directory there are 3 file that need executable flag on.
+
+*    *.env* set your FTP credentials into terminal, so, the FTP actually knows where to put style.min.css.
+*    *.unenv* unset credentials.
+*    *.ftp* takes credentials from environment, placed there by *.env* and moves
+     file stye.min.css from *dist* to final destination 
