@@ -36,24 +36,19 @@ form div.required{
 form div.input,form div.optional{
     color:#444
 }
-form div.submit{
-    border:0;
-    clear:both;
-    margin-top:10px;
-    margin-left:20px
-}
 label{
     display:block;
     font-size:105%;
     padding-right:20px
 }
-input,textarea{
-    clear:both;
-    display:block;
-    font-size:100%;
-    font-family:FontAwesome,verdana,sans-serif;
-    padding:.25em;
-    width:100%
+input,textarea, select {
+    display: block;
+    font-size: 1rem;
+    font-family: FontAwesome,verdana,sans-serif;
+    padding: 0.5rem;
+    width: 100%;
+    border: 0.2rem solid #d6d6bc;
+    outline-color: #f78e0a
 }
 input[type=hidden]{
     display:none
@@ -82,4 +77,8 @@ input[type=submit]{
     width:auto;
     font-size:1em;
     vertical-align:bottom
+}
+::placeholder { 
+  color: #8b8b79;
+  opacity: 1;
 }

@@ -7,6 +7,7 @@ This is how I deal with CSS for my [printing](https://www.printuridigital.ro/) w
 
 - sassc compiler
 - yui compressor
+* inotify-tools
 
 Also a Linux operating system 
 
