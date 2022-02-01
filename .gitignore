@@ -1,6 +1,5 @@
 /bin/.env
 /src/style.css
-/dist
 
 # Swap
 [._]*.s[a-v][a-z]
