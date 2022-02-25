@@ -2,6 +2,7 @@ div.expandable{
     &-wrapper {
         height:3.5rem
     }
+    border-bottom: 0.15rem solid $accent_color;
     position:absolute;
     box-sizing:border-box;
     z-index:999;

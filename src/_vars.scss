@@ -1,3 +1,13 @@
+// sizes
+$space: 0.5rem;
+$time: 0.5s;
+$ratio: 1.618;
+// font
+$fontsize:1rem;
+$fontfactor:$fontsize/2;
+$fontsmall:($fontsize - $fontfactor)+($fontfactor/$ratio);
+$fontsize:$fontsize;
+$fontbig:$fontsize*$ratio;
 // colors
 $main_color: #2c6202;
 $accent_color:#b80085;

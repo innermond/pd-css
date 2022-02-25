@@ -1,28 +1,5 @@
-$space: 0.5rem;
-$time: 0.5s;
-$ratio: 1.618;
-@function pow($base, $exponents) {
-  $raised: 1;
-
-  @for $i from 1 through $exponents {
-    $raised: $raised * $base;
-  }
-
-  @return $raised;
-}
-$fontsize:1rem;
-$fontfactor:$fontsize/2;
-$fontsmall:($fontsize - $fontfactor)+($fontfactor/$ratio);
-$fontsize:$fontsize;
-$fontbig:$fontsize*$ratio;
-@function lineheigh($fontsize:$fontsize) {
-    @return $fontsize*$ratio;
-}
-@mixin transition($property:all, $duration:$time, $kind:ease-in-out) {
-    transition: $property $duration $kind;
-}
-
 @import '_vars';
+@import '_behaviours';
 @import '_reset';
 @import 'component/_breadcrumbs';
 @import 'component/expandable';
@@ -44,44 +21,34 @@ p{
 }
 p img{
     float:left;
-    margin:.5em;
-    padding:0
+    margin: $space;
+    padding:0;
 }
 a:focus,a:hover,div.important.really a:hover{
-    color:$hover_color
+    color:$hover_color;
 }
 a{
     position:relative;
     text-decoration:none;
     color:$main_color;
-    @include transition($duration:$time);
-}
-sub,sup{
-    line-height:0
-}
-address{
-    margin:0 0 1.5em;
-    font-style:italic
-}
-del{
-    color:#666
+    @include transition();
 }
 ul{
-    list-style-type:none
+    list-style-type:none;
 }
 ol{
     list-style-type:decimal;
-    list-style-position:inside
+    list-style-position:inside;
 }
 dl{
-    margin:0 .5rem
+    margin:0 $space;
 }
 dd{
-    padding-left:0.5rem;
-    padding-bottom:.5rem
+    padding-left: $space;
+    padding-bottom: $space;
 }
 tfoot{
-    font-style:italic
+    font-style:italic;
 }
 caption{
     background:#627f38;
@@ -89,14 +56,14 @@ caption{
 }
 caption:hover{
     background:$hover_color;
-    cursor:pointer
+    cursor:pointer;
 }
 p.fereastra:before{
     font-family:FontAwesome;
     content:"\f071";
-    padding:0 .5rem;
-    font-size:1rem;
-    width:1rem;
+    padding:0 $space;
+    font-size: $fontsize;
+    width: $fontsize;
     color: $main_color;
 }
 #pos{
@@ -111,10 +78,10 @@ p.fereastra:before{
 }
 #logo img{
     background:#50812b;
-    transition:background-color .25s ease-in-out
+    @include transition($property: background-color);
 }
 #logo img:hover{
-    background:$hover_color
+    background:$hover_color;
 }
 #menu{
     position:relative;
@@ -122,54 +89,54 @@ p.fereastra:before{
     height:auto;
     max-width:980px;
     top:0;
-    white-space:nowrap
+    white-space:nowrap;
 }
 #menu li{
-    padding:0
+    padding:0;
 }
 #menu h2{
     display:inline;
-    font-size:1em
+    font-size: $fontsize;
 }
 #menu a{
     padding:0;
     text-transform:uppercase;
     text-align: center;
-    text-decoration:none
+    text-decoration:none;
 }
 #menu a:hover{
-    color:$hover_color
+    color:$hover_color;
 }
 #page{
     width:auto;
-    margin:0
+    margin:0;
 }
 li a{
-    text-transform:capitalize
+    text-transform:capitalize;
 }
 ul.futer li a{
-    transition:color .25s linear
+    @include transition($property:color);
 }
 ul.futer li a:hover,ul.futer a:hover{
-    text-decoration:none
+    text-decoration:none;
 }
 ul.futer li{
     margin:0;
     list-style:none;
-    padding:0 0 .5rem;
+    padding:.25rem 0rem;
     font-size:1rem;
     line-height:1.5rem;
     font-weight:400;
     color:#1f5705;
-    transition:background-color .75s linear;
-    text-transform:capitalize
+    @include transition($property:background-color);
+    text-transform:capitalize;
 }
 ul.futer li:before{
-    font-size:auto
+    font-size:auto;
 }
 ul.futer li:hover{
     background-color:$background_accent_color;
-    color:$hover_color
+    color:$hover_color;
 }
 ul.futer li.parent{
     font-size:1.2rem;
@@ -338,10 +305,9 @@ ul.topnav img{
 }
 .spacer{
     float:left;
-    max-width:25%;
-    width:300px;
+    max-width:14rem;
     margin-right:0;
-    margin-bottom:0
+    margin-bottom:0;
 }
 #back-top{
     position:fixed;
@@ -370,27 +336,27 @@ table.lista-preturi-print{
 }
 .btn{
     font-family:Roboto,FontAwesome;
-    padding:.25rem .5rem;
+    padding:0rem .5rem;
     transition:background-color .5s linear,color .5s linear;
     text-decoration:none;
-    display:inline-block
-}
-.btn:after{
-    content:'';
-    display:block;
-    width:100%;
-    height:1px;
-    background:$main_color;
-    transition:width .5s,margin-left .5s
-}
-.btn:hover{
-    cursor:pointer;
-    text-decoration:none
-}
-.btn:hover:after{
-    margin-left:50%;
-    background:$hover_color;
-    width:0
+    display:inline-block;
+    &:after{
+        content:'';
+        display:block;
+        width:100%;
+        height:1px;
+        background:$main_color;
+        transition:width .5s,margin-left .5s;
+    }
+    &:hover{
+        cursor:pointer;
+        text-decoration:none;
+        &:after{
+            margin-left:50%;
+            background:$hover_color;
+            width:0;
+        }
+    }
 }
 .flex-container{
     display:-webkit-flex;
@@ -441,19 +407,16 @@ footer{
 }
 ul.general-info{
     margin:0;
-    margin-left:.5rem;
-    background:#fef7e7
+    margin-left:$space;
+    background:$background_accent_color;
 }
 ul.general-info a{
-    font-weight:400
-}
-ul.general-info li{
-    margin-bottom:.25em
+    font-weight:400;
 }
 ul.jumpers{
     display:flex;
     flex-flow:row wrap;
-    margin:0 0 0 -.5rem
+    margin:0 0 0 -1*$space;
 }
 ul.jumpers li{
     margin-left:.5rem
@@ -497,31 +460,22 @@ div.important{
     margin:.5rem 0
 }
 div.important.really h2,div.important.really h3{
-    color:$accent_color
+    color:$accent_color;
 }
 div.important.really{
-    background-color:$background_accent_color
+    background-color:$background_accent_color;
 }
 div.important.really ul a{
     color:$accent_color;
-    line-height:2em;
     text-transform:none;
     text-decoration:none;
-    font-weight:500
+    font-weight:500;
 }
 div.important.really a{
     color:$accent_color
 }
 div.important.really ul a:hover{
     color:$hover_color
-}
-div.important.really a.btn{
-    background:$accent_color;
-    color:#fff;
-    text-decoration:none
-}
-div.important.really a.btn:hover{
-    background:$hover_color
 }
 div.important:after{
     font-family:FontAwesome;
@@ -576,6 +530,8 @@ i.fa{
     figure{
         margin:0
     }
+    ul.futer li.only-mobile{display:list-item;}
+
 }
 #navigationPoint{
     margin-top:.5rem;

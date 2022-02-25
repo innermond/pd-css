@@ -2,7 +2,7 @@
     text-transform:lowercase;
     text-align:left;
     margin-top:$ratio*$space;
-    padding:$space;
+    padding:$ratio*$space;
     @include transition(background-color);
     color:$main_color;
     &:first-letter {

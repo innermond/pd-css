@@ -1,0 +1,16 @@
+@function pow($base, $exponents) {
+  $raised: 1;
+
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+
+  @return $raised;
+}
+@function lineheigh($fontsize:$fontsize) {
+    @return $fontsize*$ratio;
+}
+@mixin transition($property:all, $duration:$time, $kind:ease-in-out) {
+    transition: $property $duration $kind;
+}
+

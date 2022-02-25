@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass:watch": "inotifywait -q -e close_write -m --exclude 'src\\/.+\\.css' src | xargs -I x npm run sass:css",
-    "sass:css": "sassc src/style.scss src/style.css",
+    "sass:watch": "inotifywait -q -e close_write -m --format '%w%f' --exclude 'src/(_.+\\.scss|.+\\.[^s][^c][^s][^s]|4913)' src | xargs -i bash -c 'sassc \"${1}\" \"${1/.scss/.css}\"' - {}",
+    "sass:all": "find ./src -type f -regex \"[^_]+.scss\" -print0 | xargs -0 -i bash -c 'sassc \"$1\" \"${1/\\.scss/\\.css}\"' - '{}'",
     "css:min": "yui-compressor -o dist/style.min.css src/style.css",
     "css:up": "npm run css:min && . bin/.env && . bin/.ftp && . bin/.unenv"
   },
