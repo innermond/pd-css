@@ -2,11 +2,11 @@
 @import '_behaviours';
 
 .tab-header{
-    margin-top: lineheigh($fontsize);
     max-width: 100%;
     display: flex;
     flex-flow: row wrap;
     border-bottom: 2px solid $main_color;
+    @include transition();
 }
 .tab-header button{
 	float: left;

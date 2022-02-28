@@ -1,8 +1,13 @@
 #!/bin/bash
+PUT=''
+for style in ./dist/*.min.css;do
+PUT="put ${style} ./${style##*\/}
+${PUT}"
+done
+echo "$PUT"
 ftp -inv $PD_FTP_HOST <<EOF
 user $PD_FTP_USER $PD_FTP_PASS
-cd www/css
-put dist/style.min.css ./style.min.css
+cd ./www/css
+$PUT
 bye
 EOF
-
