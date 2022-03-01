@@ -17,7 +17,7 @@ body{
 }
 @import '_h16';
 p{
-    padding:$space $space 2*$space;
+    padding:$space;
 }
 p img{
     float:left;
@@ -334,10 +334,20 @@ table.lista-preturi-print{
     width:100%;
     font-size:1.2rem
 }
+div.really.important .btn {
+    &:after {
+        background:$accent_color;
+    }
+    &:hover {
+        &:after {
+            background:$hover_color;
+        }
+    }
+}
 .btn{
     font-family:Roboto,FontAwesome;
-    padding:0rem .5rem;
-    transition:background-color .5s linear,color .5s linear;
+    padding:0rem $space;
+    @include transition($property:(background-color, color));
     text-decoration:none;
     display:inline-block;
     &:after{
@@ -346,7 +356,7 @@ table.lista-preturi-print{
         width:100%;
         height:1px;
         background:$main_color;
-        transition:width .5s,margin-left .5s;
+        @include transition($property:(width, margin-left, background));
     }
     &:hover{
         cursor:pointer;
