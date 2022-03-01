@@ -1,0 +1,36 @@
+@import '_vars';
+@import '_behaviours';
+
+.tab-header{
+    max-width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: 2px solid $main_color;
+    & button{
+        float: left;
+        width: auto;
+        border: none;
+        display: block;
+        font-size: $fontsize;
+        background: none;
+        color: $main_color;
+        padding:$space;
+        @include transition($property:(background-color,color));
+        &:not([class~=tab-active]):hover {
+            color: $hover_color;
+            background: $background_main_color;
+            cursor: pointer;
+        }
+    }
+}
+.tab-part{
+	border-radius: 5px;
+    margin-bottom: 1rem;
+    h2, h3, h4 {
+            margin-top: 0;
+        }
+}
+button.tab-active{
+    background: $main_color;
+    color: $background_main_color;
+}

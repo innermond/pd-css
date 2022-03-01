@@ -454,10 +454,10 @@ figcaption{
 }
 div.important{
     background-color:$background_main_color;
-    padding:1rem .5rem .5rem;
+    padding:$space;
     display:flex;
     justify-content:space-between;
-    margin:.5rem 0
+    margin:$space 0;
 }
 div.important.really h2,div.important.really h3{
     color:$accent_color;

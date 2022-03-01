@@ -14,8 +14,13 @@ const server = http.createServer((req, res) => {
         console.log('undefined q.s');
         return;
     }
-    css = fs.readFileSync('../dist/'+q.s+'.min.css');
-    res.end(css);
+    try {
+        console.log(`styling ${q.s}.css`)
+        css = fs.readFileSync('../src/'+q.s+'.css');
+        res.end(css);
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 server.listen(port, hostname, () => {

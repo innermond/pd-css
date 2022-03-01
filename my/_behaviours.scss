@@ -10,7 +10,12 @@
 @function lineheigh($fontsize:$fontsize) {
     @return $fontsize*$ratio;
 }
+
 @mixin transition($property:all, $duration:$time, $kind:ease-in-out) {
-    transition: $property $duration $kind;
+    $trans:();
+    @each $prop in $property {
+        $trans: append($trans, $prop $duration $kind, $separator: comma);
+    }
+    transition: $trans;
 }
 
