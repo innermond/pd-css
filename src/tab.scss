@@ -2,6 +2,8 @@
 @import '_behaviours';
 
 .tab-header{
+    margin-top: 4*$space;
+    margin-bottom:$space;
     max-width: 100%;
     display: flex;
     flex-flow: row wrap;

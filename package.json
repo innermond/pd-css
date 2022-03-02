@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass:watch": "inotifywait -q -e close_write -m --format '%w%f' --exclude 'src/(_.+\\.scss|.+\\.[^s][^c][^s][^s]|.+\\.css|4913)$' src | xargs -i bash -c 'sassc \"${1}\" \"${1/.scss/.css}\"' - {}",
+    "sass:watch": "./bin/wait",
     "sass:all": "find ./src -type f -regex \"[^_]+.scss\" -print0 | xargs -0 -i bash -c 'sassc \"$1\" \"${1/\\.scss/\\.css}\"' - '{}'",
     "css:min": "yui-compressor -o '.css$:.min.css' src/*[^min].css && mv src/*.min.css dist/ && rm src/*.css",
     "css:up": "npm run css:min && . bin/.env && . bin/.ftp && . bin/.unenv && rm dist/*.css"

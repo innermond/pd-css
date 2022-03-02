@@ -1,0 +1,9 @@
+#!/bin/bash
+
+inotifywait -q -e close_write -m --format '%w%f' --exclude 'src/_.+\.scss' src | while read path; 
+do 
+    if [[ "$path" =~ \.scss$ && ! "$path" =~ \.min\.scss$ && ! "$path" =~ _[^/]+\.scss$ ]]; then 
+        echo "$path"
+        sassc "$path" "${path/.scss/.css}"
+    fi 
+done

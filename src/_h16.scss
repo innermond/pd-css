@@ -1,7 +1,6 @@
 %h16 {
     text-transform:lowercase;
     text-align:left;
-    margin-top:$ratio*$space;
     padding:$ratio*$space;
     @include transition(background-color);
     color:$main_color;
@@ -18,7 +17,9 @@
     }
 }
 @for $index from 6 through 1 {
+    $hsize:(round(pow($ratio/3, $index)*1000)/1000)+$fontsize;
     h#{$index} {
-        font-size: (round(pow($ratio/3, $index)*1000)/1000)+1rem;
+        font-size: $hsize;
+        margin-top:$hsize;
     }
 }

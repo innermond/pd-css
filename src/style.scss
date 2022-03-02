@@ -17,7 +17,11 @@ body{
 }
 @import '_h16';
 p{
+    margin:$space 0rem;
     padding:$space;
+}
+p+p {
+    margin: 0rem;
 }
 p img{
     float:left;
@@ -123,11 +127,11 @@ ul.futer li a:hover,ul.futer a:hover{
 ul.futer li{
     margin:0;
     list-style:none;
-    padding:.25rem 0rem;
-    font-size:1rem;
-    line-height:1.5rem;
+    padding: $space 0rem;
+    font-size:$fontsize;
+    line-height: lineheight();
     font-weight:400;
-    color:#1f5705;
+    color:$main_color;
     @include transition($property:background-color);
     text-transform:capitalize;
 }
@@ -403,14 +407,6 @@ div.really.important .btn {
 #scule li a.title{
     display:block
 }
-.show-h1{
-    max-width:980px;
-    margin:auto;
-    padding:1em 0
-}
-.show-h1 h2{
-    font-size:1.5em
-}
 footer{
     clear:both;
     width:100%
@@ -426,10 +422,9 @@ ul.general-info a{
 ul.jumpers{
     display:flex;
     flex-flow:row wrap;
-    margin:0 0 0 -1*$space;
 }
 ul.jumpers li{
-    margin-left:.5rem
+    padding: $space;
 }
 ul.jumpers li:before{
     width:1rem;
@@ -445,9 +440,9 @@ ul.jumpers li:hover::before,ul.jumpers li:hover a{
     color:$hover_color
 }
 figcaption{
-    color:#444;
     font-weight:400;
-    text-align:center
+    padding-bottom:2*$space;
+    text-align:center;
 }
 .videoWrapper{
     position:relative;
