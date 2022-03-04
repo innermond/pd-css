@@ -1,14 +1,17 @@
+@import '../_vars';
+
 #ask-us{
     display:block;
+    font-size:$fontsize;
     position:relative;
     z-index:999;
-    background-color:#f7f6d9;
+    background-color:$background_offer_color;
     border-right:0;
-    margin:.5rem auto 1.5rem;
-    padding:.5rem 1rem .5rem .5rem;
+    margin:2*$space auto;
+    padding:$space;
     box-sizing:border-box;
     & input,& textarea{
-        margin:.5rem 0
+        margin:$space 0;
     }
 }
 .contactor{
@@ -19,9 +22,10 @@
 #ask-us-submit{
     display:block;
     max-width:max-content;
+    font-size:$fontbigger;
 }
 #ask-us-close{
-    margin:0 .5rem;
+    margin:$space;
 }
 #cerere,#nume,#posta{
     font-weight:400;
