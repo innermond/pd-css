@@ -9,7 +9,7 @@ div{
     position:relative
 }
 body{
-    line-height:lineheigh($fontsize);
+    line-height:lineheight($fontsize);
     background-color:$background_base_color;
     color:$text_color;
     font-family:Roboto,sans-serif;
@@ -73,15 +73,20 @@ p.fereastra:before{
 p.offer {
     text-align: center;
     font-size: $fontbig;
+    line-height: lineheight($fontsize:$fontbig);
     padding: 2*$space;
     margin: 4*$space auto;
     width: max-content;
     max-width: 100%;
     position: relative;
     background: $background_offer_color;
+    @include transition($property:background);
+    &:hover {
+        background: $background_base_color;
+    }
 }
 #pos{
-    max-width:1024px;
+    max-width:1007px;
     width:100%;
     margin:auto;
 }
@@ -175,7 +180,8 @@ ul.futer.subpages li:hover,ul.futer.subpages li a:hover{
     color:$hover_color
 }
 #content{
-    min-width:300px
+    max-width: 700px;
+    width: 100%;
 }
 #footer{
     float:left;
@@ -394,6 +400,7 @@ div.really.important .btn {
     -webkit-flex:1 0 0;
     -ms-flex:1 0 0;
     flex:1 0 0;
+    justify-content:space-between;
     clear:both
 }
 .flex-item{
@@ -473,6 +480,13 @@ div.important{
     display:flex;
     justify-content:space-between;
     margin:$space 0;
+    @include transition(background);
+    &.expandable {
+        @include transition((background, max-height));
+    }
+    &:hover, &.really:hover {
+        background:$background_base_color;
+    }
 }
 div.important.really h2,div.important.really h3{
     color:$accent_color;
@@ -508,7 +522,7 @@ i.fa{
     margin-right:.5rem;
     height:auto
 }
-@media(max-width:540px){
+@media(max-width:641px){
     div#menu ul#scule li{
         max-width:350px
     }

@@ -7,7 +7,7 @@
 
   @return $raised;
 }
-@function lineheigh($fontsize:$fontsize) {
+@function lineheight($fontsize:$fontsize) {
     @return $fontsize*$ratio;
 }
 
