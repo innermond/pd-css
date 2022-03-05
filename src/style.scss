@@ -93,7 +93,6 @@ p.offer {
 #header{
     width:100%;
     margin:auto;
-    background-color:#fff;
 }
 #logo img{
     background:#50812b;
@@ -133,45 +132,51 @@ p.offer {
 li a{
     text-transform:capitalize;
 }
-ul.futer li a{
-    @include transition($property:color);
-}
-ul.futer li a:hover,ul.futer a:hover{
-    text-decoration:none;
-}
-ul.futer li{
-    margin:0;
-    list-style:none;
-    padding: $space 0rem;
-    font-size:$fontsize;
-    line-height: lineheight();
-    font-weight:400;
-    color:$main_color;
-    @include transition($property:background-color);
-    text-transform:capitalize;
-}
-ul.futer li:before{
-    font-size:auto;
-}
-ul.futer li:hover{
-    background-color:$background_accent_color;
-    color:$hover_color;
-}
-ul.futer li.parent{
-    font-size:1.2rem;
-    line-height:2rem
-}
-ul.futer li.parent a{
-    margin-left:0;
-    display:inline-block;
-    width:100%
-}
-ul.futer li.parent a::before{
-    visibility:hidden
-}
-ul.futer li a{
-    margin-left:.5em;
-    display:block
+ul.futer {
+    word-break:break-word;
+    a:hover{
+        text-decoration:none;
+    }
+
+    li{
+        margin:0;
+        list-style:none;
+        padding: $space 0rem;
+        font-size:$fontsize;
+        line-height: lineheight();
+        font-weight:400;
+        color:$main_color;
+        @include transition($property:background-color);
+        text-transform:capitalize;
+        a {
+            @include transition($property:color);
+            &:hover{
+                text-decoration:none;
+            }
+            margin-left:$space;
+            display:block;
+        }
+
+        &:before{
+            font-size:auto;
+        }
+        &:hover{
+            background-color:$background_accent_color;
+            color:$hover_color;
+        }
+        &.parent{
+            font-size:$fontbigger;
+            line-height:lineheight($fontsize:$fontbigger);
+            a{
+                margin-left:0;
+                display:inline-block;
+                width:100%;
+            }
+        }
+        &.parent a::before{
+            visibility:hidden;
+        }
+    }
 }
 ul.futer.subpages li,ul.futer.subpages li a{
     color:$accent_color
@@ -219,6 +224,9 @@ th a:hover{
 div.error-message,div.message,p.error,ul.error{
     color:red;
     font-weight:700
+}
+ul.error {
+    text-align: left;
 }
 div.error-message{
     clear:both
@@ -389,9 +397,6 @@ div.really.important .btn {
     }
 }
 .flex-container{
-    display:-webkit-flex;
-    display:-webkit-box;
-    display:-ms-flexbox;
     display:flex;
     -webkit-flex-flow:row wrap;
     -ms-flex-flow:row wrap;

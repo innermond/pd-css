@@ -3,15 +3,16 @@
 #ask-us{
     font-size: $fontsize;
     display:block;
+    font-size:$fontsize;
     position:relative;
     z-index:999;
-    background-color:#f7f6d9;
+    background-color:$background_offer_color;
     border-right:0;
     margin:4*$space auto 3*$space;
     padding:$space 2*$space $space $space;
     box-sizing:border-box;
     & input,& textarea{
-        margin:.5rem 0
+        margin:$space 0;
     }
 }
 .contactor{
@@ -22,9 +23,10 @@
 #ask-us-submit{
     display:block;
     max-width:max-content;
+    font-size:$fontbigger;
 }
 #ask-us-close{
-    margin:0 .5rem;
+    margin:$space;
 }
 #cerere,#nume,#posta{
     font-weight:400;
