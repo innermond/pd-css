@@ -1,13 +1,15 @@
 How I do css-ing
 ================
 
-This is how I deal with CSS for my [printing](https://www.printuridigital.ro/) website.
+This is how I deal with CSS for my [printing](https://www.printuridigital.ro/) website, directly on a the production website.
+This way I see my CSS injected on the real website and I can test different designing scenarios CSS wise.
+The modifications accepted will then be uploaded permanently by FTP a la '90' style.
 
 ## You need installed
 
 - sassc compiler
 - yui compressor
-* inotify-tools
+- inotify-tools
 
 Also a Linux operating system 
 
@@ -16,6 +18,9 @@ Also a Linux operating system
 ### sass:watch
 
 It monitors any changes to files hosted in *src* directory and convert scss files to coresponding css files.
+
+In order to inject your modifications, you `cd to bin/`  fire a `node server-style.js` that runs on port 3000 and copy to the browser console browset-style.js.
+The production website must have Content-Security-Policy set to allows localhost:3000. Every time you switch to browser window and activate it, by clicking your CSS modification will appear laid out on your production website. They are not permanent, they are shown only in that browser window.
 
 ### css:up
 
