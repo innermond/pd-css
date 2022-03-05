@@ -17,7 +17,6 @@
         background: none;
         color: $main_color;
         padding:$space;
-        @include transition($property:(background-color,color));
         &:not([class~=tab-active]):hover {
             color: $hover_color;
             background: $background_main_color;

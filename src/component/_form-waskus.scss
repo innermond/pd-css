@@ -1,11 +1,14 @@
+@import '../_vars';
+
 #ask-us{
+    font-size: $fontsize;
     display:block;
     position:relative;
     z-index:999;
     background-color:#f7f6d9;
     border-right:0;
-    margin:.5rem auto 1.5rem;
-    padding:.5rem 1rem .5rem .5rem;
+    margin:4*$space auto 3*$space;
+    padding:$space 2*$space $space $space;
     box-sizing:border-box;
     & input,& textarea{
         margin:.5rem 0

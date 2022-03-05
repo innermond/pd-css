@@ -70,6 +70,16 @@ p.fereastra:before{
     width: $fontsize;
     color: $main_color;
 }
+p.offer {
+    text-align: center;
+    font-size: $fontbig;
+    padding: 2*$space;
+    margin: 4*$space auto;
+    width: max-content;
+    max-width: 100%;
+    position: relative;
+    background: $background_offer_color;
+}
 #pos{
     max-width:1024px;
     width:100%;
